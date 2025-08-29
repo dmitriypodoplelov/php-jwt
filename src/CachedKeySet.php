@@ -1,6 +1,6 @@
 <?php
 
-namespace Firebase\JWT;
+namespace Copyfirebase\JWT;
 
 use ArrayAccess;
 use InvalidArgumentException;
