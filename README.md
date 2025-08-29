@@ -13,7 +13,7 @@ Installation
 Use composer to manage your dependencies and download PHP-JWT:
 
 ```bash
-composer require firebase/php-jwt
+composer require dmitriypodoplelov/php-jwt
 ```
 
 Optionally, install the `paragonie/sodium_compat` package from composer if your
@@ -26,8 +26,8 @@ composer require paragonie/sodium_compat
 Example
 -------
 ```php
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+use Copyfirebase\JWT\JWT;
+use Copyfirebase\JWT\Key;
 
 $key = 'example_key';
 $payload = [
