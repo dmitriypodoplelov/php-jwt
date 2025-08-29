@@ -1,5 +1,5 @@
 <?php
-namespace Firebase\JWT;
+namespace Copyfirebase\JWT;
 
 interface JWTExceptionWithPayloadInterface
 {
