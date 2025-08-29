@@ -77,7 +77,7 @@ attacker.  If this is something you still want to do in your application for wha
 decode the header values manually simply by calling `json_decode` and `base64_decode` on the JWT
 header part:
 ```php
-use Firebase\JWT\JWT;
+use Copyfirebase\JWT\JWT;
 
 $key = 'example_key';
 $payload = [
@@ -105,8 +105,8 @@ print_r($decoded);
 Example with RS256 (openssl)
 ----------------------------
 ```php
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+use Copyfirebase\JWT\JWT;
+use Copyfirebase\JWT\Key;
 
 $privateKey = <<<EOD
 -----BEGIN RSA PRIVATE KEY-----
@@ -175,8 +175,8 @@ Example with a passphrase
 -------------------------
 
 ```php
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+use Copyfirebase\JWT\JWT;
+use Copyfirebase\JWT\Key;
 
 // Your passphrase
 $passphrase = '[YOUR_PASSPHRASE]';
@@ -211,8 +211,8 @@ echo "Decode:\n" . print_r((array) $decoded, true) . "\n";
 Example with EdDSA (libsodium and Ed25519 signature)
 ----------------------------
 ```php
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+use Copyfirebase\JWT\JWT;
+use Copyfirebase\JWT\Key;
 
 // Public and private keys are expected to be Base64 encoded. The last
 // non-empty line is used so that keys can be generated with
@@ -242,8 +242,8 @@ echo "Decode:\n" . print_r((array) $decoded, true) . "\n";
 Example with multiple keys
 --------------------------
 ```php
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+use Copyfirebase\JWT\JWT;
+use Copyfirebase\JWT\Key;
 
 // Example RSA keys from previous example
 // $privateKey1 = '...';
@@ -281,14 +281,14 @@ Using JWKs
 ----------
 
 ```php
-use Firebase\JWT\JWK;
-use Firebase\JWT\JWT;
+use Copyfirebase\JWT\JWK;
+use Copyfirebase\JWT\JWT;
 
 // Set of keys. The "keys" key is required. For example, the JSON response to
 // this endpoint: https://www.gstatic.com/iap/verify/public_key-jwk
 $jwks = ['keys' => []];
 
-// JWK::parseKeySet($jwks) returns an associative array of **kid** to Firebase\JWT\Key
+// JWK::parseKeySet($jwks) returns an associative array of **kid** to Copyfirebase\JWT\Key
 // objects. Pass this as the second parameter to JWT::decode.
 JWT::decode($payload, JWK::parseKeySet($jwks));
 ```
@@ -304,8 +304,8 @@ This has the following advantages:
 3. If rate limiting is enabled, the JWKS URI will not make more than 10 requests a second.
 
 ```php
-use Firebase\JWT\CachedKeySet;
-use Firebase\JWT\JWT;
+use Copyfirebase\JWT\CachedKeySet;
+use Copyfirebase\JWT\JWT;
 
 // The URI for the JWKS you wish to cache the results from
 $jwksUri = 'https://www.gstatic.com/iap/verify/public_key-jwk';
@@ -340,10 +340,10 @@ Miscellaneous
 When a call to `JWT::decode` is invalid, it will throw one of the following exceptions:
 
 ```php
-use Firebase\JWT\JWT;
-use Firebase\JWT\SignatureInvalidException;
-use Firebase\JWT\BeforeValidException;
-use Firebase\JWT\ExpiredException;
+use Copyfirebase\JWT\JWT;
+use Copyfirebase\JWT\SignatureInvalidException;
+use Copyfirebase\JWT\BeforeValidException;
+use Copyfirebase\JWT\ExpiredException;
 use DomainException;
 use InvalidArgumentException;
 use UnexpectedValueException;
@@ -372,11 +372,11 @@ try {
 }
 ```
 
-All exceptions in the `Firebase\JWT` namespace extend `UnexpectedValueException`, and can be simplified
+All exceptions in the `Copyfirebase\JWT` namespace extend `UnexpectedValueException`, and can be simplified
 like this:
 
 ```php
-use Firebase\JWT\JWT;
+use Copyfirebase\JWT\JWT;
 use UnexpectedValueException;
 try {
     $decoded = JWT::decode($payload, $keys);
