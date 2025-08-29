@@ -1,6 +1,6 @@
 <?php
 
-namespace Firebase\JWT;
+namespace Copyfirebase\JWT;
 
 class BeforeValidException extends \UnexpectedValueException implements JWTExceptionWithPayloadInterface
 {
